@@ -8,6 +8,7 @@
 <form method="POST">
     {{ form.hidden_tag() }}
     {{ field_error(form.hidden_tag) }}
+    {{ form.csrf_token }}
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">

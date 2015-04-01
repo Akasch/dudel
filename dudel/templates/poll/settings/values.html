@@ -72,7 +72,7 @@
             <form method="POST">
                 {{ form.hidden_tag() }}
                 {{ form_errors(form) }}
-
+                {{ form.csrf_token }}
                 <div class="row">
                     <div class="col-sm-6 form-group">
                         {{ form.title.label }}

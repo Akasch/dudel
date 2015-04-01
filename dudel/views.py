@@ -8,7 +8,7 @@ from dateutil import parser
 import re
 from sqlalchemy import func
 
-from dudel import app, db, babel, supported_languages, sentry
+from dudel import app, db, babel, supported_languages, sentry, csrf
 from dudel.models import Poll, User, Vote, VoteChoice, Choice, ChoiceValue, Comment, PollWatch, Member, Group, \
     Invitation
 from dudel.login import get_user
@@ -469,6 +469,7 @@ def poll_invitations_resend_all(slug):
 
 @app.route("/<slug>/watch/<watch>/<mac>", methods=("POST", "GET"))
 @login_required
+@csrf.exempt
 def poll_watch(slug, watch, mac):
     poll = get_poll(slug)
 

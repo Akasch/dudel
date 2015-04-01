@@ -18,6 +18,7 @@
     <form method="POST" class="form-inline">
         {{ form.hidden_tag() }}
         {{ form_errors(form) }}
+        {{ form.csrf_token }}
 
         {% set choices = poll.get_choices() %}
         {% set matrix = poll.get_choice_group_matrix() %}

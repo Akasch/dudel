@@ -35,6 +35,7 @@
         </div>
         <div class="col-md-6">
             <form method="POST">
+            {{ form.csrf_token }}
             {{ form.hidden_tag() }}
             {{ field_error(form.hidden_tag) }}
 

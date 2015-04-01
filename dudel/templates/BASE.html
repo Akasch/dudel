@@ -53,6 +53,7 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     {% if current_user.is_anonymous() %}
                     <form class="navbar-form navbar-right" method="POST" action="{{ url_for('login', next=request.url) }}" style="border: 0; padding-right: 0; padding-left: 0;">
+                        {{ login_form.csrf_token }}
                         <div class="form-group">
                             {{ login_form.username(class="form-control", placeholder=login_form.username.label.text) }}
                         </div>
@@ -98,6 +99,7 @@
                 {% endfor %}
                 <form class="form-inline" action="{{ url_for('user_change_language', next=request.url) }}" method="POST">
                     {{ lang_form.hidden_tag() }}
+                    {{ lang_form.csrf_token }}
                     {% for language in lang_form.language %}
                         &middot; {{ language() }}
                     {% endfor %}

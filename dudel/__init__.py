@@ -8,11 +8,14 @@ from flask.ext.gravatar import Gravatar
 from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.script import Manager
 from flask.ext.mail import Mail
+from flask_wtf.csrf import CsrfProtect
 import pytz
 
 app = Flask(__name__)
 app.config.from_pyfile("../config.py.example", silent=True)
 app.config.from_pyfile("../config.py", silent=True)
+csrf = CsrfProtect()
+csrf.init_app(app)
 manager = Manager(app)
 db = SQLAlchemy(app)
 markdown = Markdown(app, safe_mode="escape")

@@ -33,6 +33,7 @@
         <h3>{{ _("Post a comment") }}</h3>
         <form method="POST" class="form">
             {{ comment_form.hidden_tag() }}
+            {{ comment_form.csrf_token }}
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-4">
